@@ -1,0 +1,6 @@
+.row
+  - if @partners_general.count > 0
+    = render 'partners_each' , partners: @partners_general , heading: "Sponsors"
+.row
+  - if @partners_media.count > 0
+    = render 'partners_each' , partners: @partners_media , heading: "Partners"

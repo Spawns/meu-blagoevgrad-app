@@ -1,0 +1,26 @@
+.row
+  = link_to "New Organizer" , new_admin_organizer_path , :remote => "true" , :class => "button"
+  #new-organizer
+
+.row
+  .large-12.columns
+    %ul.tabs{"data-tab" => "", :role => "tablist"}
+      %li.tab-title{:role => "presentation", :class => ('active' unless @active == 'chair' || @active =='adviser')}
+        %a{"aria-controls" => "panel3-1", "aria-selected" => "true", :href => "#team", :role => "tab", :tabindex => "0"} Team
+      %li.tab-title{:role => "presentation", :class => ('active' unless @active == 'team' || @active =='adviser')}
+        %a{"aria-controls" => "panel3-2", "aria-selected" => "false", :href => "#chair", :role => "tab", :tabindex => "0"} Chairs
+      %li.tab-title{:role => "presentation", :class => ('active' unless @active == 'team' || @active =='chair')}
+        %a{"aria-controls" => "panel3-3", "aria-selected" => "false", :href => "#adviser", :role => "tab", :tabindex => "0"} Advisers
+    .tabs-content
+      .content{ id: 'team', :class => ('active' unless @active == 'chair' || @active =='adviser')}
+        #team-organizers
+          = render 'organizers' , :type => 'team'
+          = will_paginate @team_organizers, :param_name => 'team_page'
+      .content{ id: 'chair', :class => ('active' unless @active == 'team' || @active =='adviser')}
+        #chair-organizers
+          = render 'organizers' , :type => 'chair'
+          = will_paginate @chair_organizers, :param_name => 'chair_page'
+      .content{id: 'adviser', :class => ('active' unless @active == 'team' || @active =='chair')}
+        #adviser-organizers
+          = render 'organizers' , :type => 'adviser'
+          = will_paginate @adviser_organizers, :param_name => 'adviser_page'

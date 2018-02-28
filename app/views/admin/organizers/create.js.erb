@@ -1,0 +1,20 @@
+<% if @organizer.errors.any? %>
+    $('#team-organizers').html("<%=escape_javascript(render 'organizers' , :type => 'team') %>");
+    $('#chair-organizers').html("<%=escape_javascript(render 'organizers' , :type => 'chair') %>");
+    $('#adviser-organizers').html("<%=escape_javascript(render 'organizers' , :type => 'adviser') %>");
+    $('#errors').html("<%=escape_javascript(render 'errors') %>");
+    $('#new-organizer').html("<%= escape_javascript( render 'form' , action: 'new' ) %>");
+
+
+<% else %>
+
+    $('#team-organizers').html("<%=escape_javascript(render 'organizers' , :type => 'team') %>");
+    $('#chair-organizers').html("<%=escape_javascript(render 'organizers' , :type => 'chair') %>");
+    $('#adviser-organizers').html("<%=escape_javascript(render 'organizers' , :type => 'adviser') %>");
+    $('#new-organizer').slideUp(350);
+    $('#errors').slideUp(350);
+    $(document).foundation('equalizer', 'reflow');
+
+
+<% end %>
+

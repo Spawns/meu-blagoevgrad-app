@@ -1,0 +1,22 @@
+.row.step-by-step-style-two
+  .small-12.medium-2.medium-offset-1.columns
+    .path-item{:class => active_el('active-class' , wizard_path(:personal))}
+      =link_to "<div class='circlenumber'><h3>1</h3></div>".html_safe ,wizard_path(:personal)
+      %h5
+        Personal Details
+  .small-12.medium-2.columns{:class => active_el('active-class' , wizard_path(:educational))}
+    =link_to "<div class='circlenumber'><h3>2</h3></div>".html_safe, wizard_path(:educational)
+    %h5
+      Educational Background
+  .small-12.medium-2.columns{:class => active_el('active-class' , wizard_path(:passport))}
+    =link_to "<div class='circlenumber'><h3>3</h3></div>".html_safe,  wizard_path(:passport)
+    %h5
+      Personal Documents
+  .small-12.medium-2.columns{:class => active_el('active-class' , wizard_path(:delegate))}
+    =link_to "<div class='circlenumber'><h3>4</h3></div>".html_safe,  wizard_path(:delegate)
+    %h5
+      Delegate Preferences
+  .small-12.medium-2.columns.end{:class => active_el('active-class' , wizard_path(:letters))}
+    =link_to  "<div class='circlenumber'><h3>5</h3></div>".html_safe, wizard_path(:letters)
+    %h5
+      Motivation

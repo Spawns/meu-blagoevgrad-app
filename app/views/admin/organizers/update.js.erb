@@ -1,0 +1,19 @@
+<% if @organizer.errors.any? %>
+$('#team-organizers').html("<%=escape_javascript(render 'organizers' , :type => 'team') %>");
+$('#chair-organizers').html("<%=escape_javascript(render 'organizers' , :type => 'chair') %>");
+$('#adviser-organizers').html("<%=escape_javascript(render 'organizers' , :type => 'adviser') %>");
+$("#errors-<%= @organizer.id %>").html("<%=escape_javascript(render 'errors') %>");
+$("#id-<%= @organizer.id%>").html("<%= escape_javascript( render 'form' , action: 'edit' ) %>");
+
+
+<% else %>
+$("#id-<%= @organizer.id%>").slideUp(350);
+$("#errors-<%= @organizer.id%>").slideUp(350);
+$('#team-organizers').html("<%=escape_javascript(render 'organizers' , :type => 'team') %>");
+$('#chair-organizers').html("<%=escape_javascript(render 'organizers' , :type => 'chair') %>");
+$('#adviser-organizers').html("<%=escape_javascript(render 'organizers' , :type => 'adviser') %>");
+
+
+
+<% end %>
+

@@ -1,0 +1,64 @@
+
+%footer.footer
+  .three.spacing
+  .row.full-width
+    .large-3.medium-3.columns
+      %h1.logo
+        %a= link_to image_tag("footerlogo.png") , root_path
+      .spacing
+    .large-3.medium-3.columns
+      .spacing
+      .links.inline-list
+        %h4
+          Conference
+        %ul
+          %p= link_to  "Agenda" , frontend_agenda_path
+          %p= link_to  "Accommodation & Fees" , frontend_accommodation_path
+          %p= link_to  "Visa information" , frontend_visa_path
+
+      .spacing
+    .large-3.medium-3.columns
+      .spacing
+      .links.inline-list
+        %p= link_to  "Transportation" , frontend_transportation_path
+        %p= link_to  "Documents" , frontend_conference_documents_path
+        %p= link_to "Contact us" , new_frontend_contact_form_path
+        -#%h4
+        -#  Organizers
+        -#%ul
+        -#  %p= link_to "Organizing team" , team_frontend_organizers_path
+        -#  %p= link_to "Advisers" , advisers_frontend_organizers_path
+        -#  %p= link_to "Chairs" , chairs_frontend_organizers_path
+        -#  %hr
+        -#  %p= link_to "Supporters" , frontend_partners_path
+          %hr
+          %p= link_to "Contact us" , new_frontend_contact_form_path
+      .spacing
+    .large-3.medium-3.columns
+      .spacing
+        .row
+          .large-12.medium-12.columns
+            .spacing
+            .share-icons.buildingblocks
+              %a{:href => "#{AppConfig.fb_url}", :target => "_blank"}
+                =image_tag "fb_icon.png"
+              %a{:href => "#{AppConfig.tw_url}", :target => "_blank"}
+                =image_tag "twitter_icon.png"
+              %a{:href => "#{AppConfig.yt_url}", :target => "_blank"}
+                =image_tag "youtube_icon.png"
+              %a{:href => "#{AppConfig.in_url}", :target => "_blank"}
+                =image_tag "insta_icon.png"
+            .spacing
+      .spacing
+    %hr
+  .row.full-width
+    .large-8.medium-8.columns
+      %p.copywrite.left
+        Copyright © #{conf_start('year')} Blagoevgrad Model European Union #{conf_start('year')} – MEU-Blagoevgrad #{conf_start('year')}
+      .spacing
+    .large-4.medium-4.columns
+      .spacing
+        %p.copywrite.right
+          Created by
+          = link_to image_tag('centroidmeu.png') , "http://www.centroida.co"
+  .two.spacing

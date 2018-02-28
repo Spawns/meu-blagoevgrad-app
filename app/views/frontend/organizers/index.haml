@@ -1,0 +1,23 @@
+= content_for :sidebar do
+  = render 'frontend/shared/organizers_sidebar_items'
+= content_for :sidebar_title do
+  Organizers Menu
+.row
+  .large-12.columns
+    %h2.page-heading
+      =@title
+
+  - @organizers.each_slice(4) do |group|
+    .row.org-group
+      - group.each do |organizer|
+        .large-3.columns
+          .large-12.columns.profile-container
+            .circular-sm{ :style => " background: url( #{organizer.avatar.url(:thumb)} )"}
+            %h5.text-center=organizer.name
+            = link_to  '' , [:frontend, organizer] , :remote => 'true'  , :class => 'organizer-link'  , :data => {'reveal-id' => "myModal"}
+
+
+#myModal.reveal-modal{:class => "[expand, xlarge, large, medium, small]", :data =>{ 'reveal' => true}}
+  %a.close-reveal-modal
+    %i.fi-x.close-icon
+  #inside-modal

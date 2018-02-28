@@ -1,0 +1,13 @@
+.row
+  .large-12.columns.fixed-height
+    %fieldset
+      %legend MEU Blagoevgrad Application Form
+      = render partial: 'application_steps_links'
+      = simple_form_for @application , url: wizard_path do |f|
+        .row
+          = f.label :role
+          = f.collection_radio_buttons :faction, [['Member of The European Parliament', 'Member of The European Parliament'] ,['Minister of The Council of the EU', 'Minister in The Council of the EU'] , ['Lobbyist', 'Lobbyist'] ,['Journalist' , 'Journalist']],:first, :last  , :item_wrapper_class => 'faction_radio' |
+        .row
+          = button_tag( :class => "button") do
+            Next
+            %i.fi-arrow-right

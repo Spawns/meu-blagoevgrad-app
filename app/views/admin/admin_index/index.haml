@@ -1,0 +1,19 @@
+= javascript_include_tag "//www.google.com/jsapi"
+
+.row
+  %h3
+    Applications
+  .large-6.columns
+    %h4 Status
+    = pie_chart Application.group(:status).count
+  .large-6.columns
+    %h4 Preferred positions
+    = pie_chart Application.accepted.group(:faction).count
+.row
+  .large-12.columns
+    %h4 Nationality of the accepted applicants
+    = geo_chart @accepted_passports.group(:country_name).count
+.row
+  .large-12.columns
+    %h4 Registration activity
+    = line_chart User.group_by_day(:created_at).count

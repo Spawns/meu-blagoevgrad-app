@@ -1,0 +1,10 @@
+
+.circular-big{ :style => " background: url( #{@organizer.avatar.url(:medium)} )"}
+.row
+  .small-7.small-centered.columns
+    %h3.text-center.org-name=@organizer.name
+    %h4.text-center.org-title=@organizer.title
+.row
+%p=@organizer.bio.html_safe
+
+

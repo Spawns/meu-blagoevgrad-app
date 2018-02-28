@@ -1,0 +1,13 @@
+%h3.conference-side-nav-heading
+  Conference #{conf_start('year')}
+%ul.side-nav
+  %li{:class=> active_el('sidebar-active', frontend_agenda_path )}
+    =link_to "<i class='fi-calendar'></i><h5> Agenda </h5>".html_safe, frontend_agenda_path
+  %li{:class=> active_el('sidebar-active', frontend_accommodation_path )}
+    =link_to "<i class='fi-home'></i><h5>Accommodation & Fees</h5>".html_safe , frontend_accommodation_path
+  %li{:class=> active_el('sidebar-active',  frontend_visa_path )}
+    =link_to "<i class='fi-web'></i><h5>Visa Information</h5>".html_safe , frontend_visa_path
+  %li{:class=> active_el('sidebar-active',  frontend_transportation_path )}
+    =link_to "<i class='fi-compass'></i><h5> Transportation</h5>".html_safe, frontend_transportation_path
+  %li{:class=> active_el('sidebar-active',  frontend_conference_documents_path )}
+    =link_to  "<i class='fi-page-doc'></i><h5>Conference Documents</h5>".html_safe, frontend_conference_documents_path

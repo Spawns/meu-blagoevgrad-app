@@ -1,0 +1,14 @@
+.row
+  .large-12.columns.fixed-height
+    %fieldset
+      %legend MEU Blagoevgrad Application Form
+      = render partial: 'application_steps_links'
+      = simple_form_for @application , url: wizard_path , :html => {:'data-abide' => 'true'} do |f|
+        = f.input :photo
+        = f.input :motivational_letter,:label => "Motivational letter (at least 200 words)" , :input_html => {:rows => 5}
+        = f.input :previous_experience, :input_html => {:rows => 5}
+        = f.input :learned_from, :label => "From where did you hear about MEU Blagoevgrad?" , collection: [['Through my University/School ', 'Through my University/School '] ,['Through another MEU/MUN', 'Through another MEU/MUN'] , ['Through a MEU Blagoevgrad team member' , 'Through a MEU Blagoevgrad team member'], ['From a friend' , 'From a friend'] , ['Through social networks' , 'Through social networks'] , ['Media' , 'Media'] ]
+        = f.button :submit , "Complete Application"
+
+
+=javascript_include_tag 'textareavalidate'

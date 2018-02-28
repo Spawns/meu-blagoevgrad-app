@@ -1,0 +1,113 @@
+.parallax-content
+  %ul.slider-orbit{"data-options" => "animation:slide; slide_number: false; pause_on_hover:false; animation_speed:500; navigation_arrows:true; bullets:false; animation_speed: 0,","data-orbit" => ""}
+    - (1..4).each do |i|
+      %li{:style => "background: url(/assets/IMG#{i}.jpg)"}
+        .row.collapse.full-width.whatis-container
+          .large-6.columns
+          .large-6.columns.whatis
+            %h2 What is MEU Blagoevgrad?
+            %hr.small
+            %p.wow.fadeInRight
+              One of the main goals of this conference is to simulate the decision-making procedures of the European Union.
+              In this way students will get the opportunity to use the knowledge they acquired during their studies
+              practically and gain some valuable professional experience. Moreover, our second goal is for the participant to have fun.
+              Participating in this conference will create a chance for young professionals to strengthen connections,
+              exchange ideas, encounter different cultures and languages, improve their personal skills,
+              experience and learn about the way the European Union functions.
+  .row.collapse.full-width
+    .medium-12.columns
+      %h2.landing-page-heading{:style => "margin-top: 0;"}
+        Roles
+  .row.features.wow.fadeInRight
+    .medium-3.columns
+      .round-icon
+        %span
+          =image_tag "role-mep.svg"
+      %h4 Member of The European Parliament
+      %hr/
+    .medium-9.columns
+      %p
+        Members of the European Parliament (MEPs) are directly elected every five years
+        in order to represent the voice of the citizens of the 28 EU Member States in the
+        European Parliament. In a similar fashion as in national parliaments, these representatives
+        work together in eight separate political groups at an EU level. During debates at MEU Blagoevgrad #{conf_start('year')},
+        MEPs shall work with their colleagues in order to first reach a common position within their
+        respective factions and then try to create consensus in the EP and ultimately with the Council of Ministers,
+        the co-legislative body of the European Union. MEPs will also work closely with lobbyists and journalists in order to get their point across and form greater alliances. Once the conference begins, faction leaders will be appointed.
+  .row.features.features.wow.fadeInRight
+    .medium-3.columns
+      .round-icon
+        %span
+          =image_tag "role-minister.svg"
+      %h4 Minister in The Council of the EU
+      %hr/
+    .medium-9.columns
+      %p
+        The Council of the EU is the institution where government ministers from each member state meet to discuss, amend and adopt laws, and coordinate policies. As one of the 28 national ministers, representing the interests of their countries in the given policy area, you will have to voice your opinion and defend your position through heated debate. The position of a minister in the Council of the EU brings vast responsibilities and greater decision-making power than the role of an MEP. Being in the Council means that you should suggest practical solutions on behalf of your government, form alliances, and gain the support of other ministers, MEPs and lobbyists, who will push your position forward.
+  .row.features.features.wow.fadeInRight
+    .medium-3.columns
+      .round-icon
+        %span
+          =image_tag "role-journalist.svg"
+      %h4 Journalist
+      %hr/
+    .medium-9.columns
+      %p
+        The goal of journalists at Model European Union Blagoevgrad #{conf_start('year')} is to keep participants informed about decisions and agreements, discussed and achieved in the respective Committees of the European Parliament and in the Council of Ministers. In order to fulfill these tasks, all you need is natural curiosity, a desire to reach the gist of the issue, and a great amount of energy. You have the freedom to communicate your findings through various channels- contribute to the MEU’s newspaper, create a blog, take photos or tweet about every moment that deserves attention.
+  .row.features.features.wow.fadeInRight
+    .medium-3.columns
+      .round-icon
+        %span
+          =image_tag "role-lobbyist.svg"
+      %h4 Lobbyist
+    .medium-9.columns
+      %p
+        Policy formulation and decision-making processes on an EU level have a direct or indirect effect on national legislation across all member states. Lobbying consists of all activities, carried out with the objective of influencing such procedures through consultation and recognized dialogue with EU institutions.Your role as a lobbyist will be to meet with MEPs and persuade them to pass amendments that coincide with your employer’s interests. Access to ministers of the Council of the EU will be a more difficult task. Lobbyists will have to network effectively and make use of coffee breaks, informal meetings and social events throughout the conference to secure their desired legislative outcome. If you would like to test your rhetoric skills, build a network of connections between different EU institutions, and get a firsthand experience of how outside actors influence EU legislation, the role of a lobbyist would be the perfect choice!
+  .row.collapse.full-width{:data=>{'equalizer' => true}}
+    .large-6.columns.news-section{:data=>{'equalizer-watch'=> true}}
+      %h2.landing-page-heading#news.features.wow.fadeInleft
+        News
+      .large-12.columns.news-container
+        - @posts.each do |post|
+          .news-item.wow.slideInLeft
+            %a{:href => "https://www.facebook.com/MEUBlagoevgrad/#{post['id']}"}
+              %h6
+                %small
+                  =DateTime.parse(post['created_time']).strftime('%a %d %b %Y')
+              %p
+                =post['message']
+
+    .large-6.columns{:data=>{'equalizer-watch'=> true}}
+      %h2.landing-page-heading#videos.features.wow.fadeInRight{:style => "margin-bottom: 0;"}
+        Videos
+      - @videos.each do |video|
+        .image-wrapper.overlay-fade-in{:style => "left: 20%; width: 400px;"}
+          =image_tag video.thumbnail_url(size = :high), :style => "max-height: 100%;"
+          .image-overlay-content
+            %i.fi-play
+            %h2=video.title
+            =link_to '', show_video_path(video.id) , :remote => 'true' , :class=>'image-wrapper-link'
+  .row.collapse.full-width.social-container
+    .large-6.columns.left.social-text
+      %span
+        MEU BLAGOEVGRAD IS
+        %strong SOCIAL
+    .large-6.columns.right
+      .share-icons.buildingblocks
+        %a{:href => "#{AppConfig.fb_url}", :target => "_blank"}
+          =image_tag "fb_icon.png"
+        %a{:href => "#{AppConfig.tw_url}", :target => "_blank"}
+          =image_tag "twitter_icon.png"
+        %a{:href => "#{AppConfig.yt_url}", :target => "_blank"}
+          =image_tag "youtube_icon.png"
+        %a{:href => "#{AppConfig.in_url}", :target => "_blank"}
+          =image_tag "insta_icon.png"
+  .landing-timer
+    = render 'timer'
+
+
+-#used for the video player
+#video-modal.reveal-modal{:class => "[expand, xlarge, large, medium, small]", :data =>{ 'reveal' => true}}
+  %a.close-reveal-modal
+    %i.fi-x.close-icon
+  #inside-modal

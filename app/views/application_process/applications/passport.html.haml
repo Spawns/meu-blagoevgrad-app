@@ -1,0 +1,27 @@
+.row
+  .large-12.columns.fixed-height
+    %fieldset
+      %legend MEU Blagoevgrad Application Form
+      = render partial: 'application_steps_links'
+      = simple_form_for @application , url: wizard_path do |f|
+        .row
+          = f.simple_fields_for :passport , @passport do |passport_form|
+            .large-4.columns
+              = passport_form.input :passport_no
+            .large-2.columns
+
+              = passport_form.input :passport_issue_city
+            .large-2.columns
+              %label
+                Passport country
+              = passport_form.country_select :passport_issue_country
+            .large-4.columns
+              = passport_form.input :birth_city
+            %label
+              Country
+            = passport_form.country_select :country
+            = passport_form.input :province
+            = passport_form.input :nationality
+          = button_tag( :class => "button") do
+            Next
+            %i.fi-arrow-right

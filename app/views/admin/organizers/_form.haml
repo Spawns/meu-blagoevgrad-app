@@ -1,0 +1,14 @@
+= simple_form_for [:admin, @organizer] , :html => { :multipart => true }, :remote => true   do |f|
+  %h4
+    = action.capitalize
+    Organizer
+
+  = f.input :name, as: :string
+  = f.input :bio, as: :text
+  = f.input :title, as: :string
+  = f.input :role , :collection => [['Team','team'],['Adviser' , 'adviser'],['Chair','chair']]
+  - if action == 'edit'
+    =image_tag @organizer.avatar
+  = f.input :avatar, as: :file
+
+  = f.button :submit ,  action=='new' ? 'Add' : 'Update' , :class => "button expand"

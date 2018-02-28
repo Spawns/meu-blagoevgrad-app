@@ -1,0 +1,13 @@
+.row
+  .medium-2.small-4.columns
+    %h3=image_tag organizer.avatar
+  .medium-10.small-7.columns
+    %h3=organizer.name
+    %h5=organizer.title
+    %h6=organizer.bio
+    .row
+      %ul.button-group
+        = link_to  "Edit" ,edit_admin_organizer_path(organizer), :class => "button", remote: true
+        = link_to  "Delete" , [:admin , organizer] , :class => "button", remote: true, method: :delete,  data: { confirm: 'Are you sure?' }
+        .error-list{:id => "errors-#{organizer.id}"}
+        .edit-form{:id => "id-#{organizer.id}" , :data=>{'equalizer-watch'=> "list"} }

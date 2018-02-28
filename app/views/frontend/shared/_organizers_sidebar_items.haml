@@ -1,0 +1,10 @@
+%h3.conference-side-nav-heading
+  Organizers
+
+%ul.side-nav
+  %li{:class=> active_el( 'sidebar-active' , team_frontend_organizers_path) }
+    =link_to "<h4> Organizing team </h4>".html_safe ,team_frontend_organizers_path
+  %li{:class=> active_el( 'sidebar-active' , advisers_frontend_organizers_path) }
+    =link_to"<h4> Advisers </h4>".html_safe ,advisers_frontend_organizers_path
+  %li{:class=> active_el( 'sidebar-active' , chairs_frontend_organizers_path) }
+    =link_to "<h4> Chairs </h4>".html_safe ,chairs_frontend_organizers_path

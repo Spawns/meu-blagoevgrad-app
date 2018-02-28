@@ -1,0 +1,15 @@
+<% if @partner.errors.any? %>
+    $('#sponsor-partners').html("<%=escape_javascript(render 'partners' , :type => 'sponsor') %>");
+    $('#partner-partners').html("<%=escape_javascript(render 'partners' , :type => 'partner') %>");
+    $('#errors').html("<%=escape_javascript(render 'errors') %>")
+    $('#new-partner').html("<%= escape_javascript( render 'form', action: 'new') %>");
+
+<% else %>
+    $('#sponsor-partners').html("<%=escape_javascript(render 'partners' , :type => 'sponsor') %>");
+    $('#partner-partners').html("<%=escape_javascript(render 'partners' , :type => 'partner') %>");
+    $('#new-partner').slideUp(350);
+    $('#errors').slideUp(350);
+    $(document).foundation('equalizer', 'reflow');
+
+<% end %>
+

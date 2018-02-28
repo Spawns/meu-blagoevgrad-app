@@ -1,0 +1,29 @@
+.row
+  .large-12.columns.fixed-height
+    %fieldset
+      %legend MEU Blagoevgrad Application Form
+      = render partial: 'application_steps_links'
+      = simple_form_for @application , url: wizard_path do |f|
+        = f.input :name , label: 'Full name'  , :required => true
+        = f.label :gender
+        = f.collection_radio_buttons( :gender, [["F", 'F'] ,["M", 'M']], :first, :last, label: 'Gender', checked: @application.gender , item_wrapper_class: :block_radio_button_collection  )
+        = f.input :dob, :as=> 'string' ,:label => 'Date of birth', input_html: { class: 'datepicker'}
+        = f.input :current_address , :label => 'Address'
+        = f.input :mobile_phone , as: :tel
+        = f.input :special_needs
+        .row
+          .large-6.columns
+            = f.input :emergency_contact_person
+          .large-6.columns
+            = f.input :emergency_contact_person_phone
+        = f.check_box  :terms_of_service ,  required: true
+        %span
+        I accept the
+        =link_to "Terms of Service" , "#" , :data => {'reveal-id' => "tos"}
+        .row
+          = button_tag( :class => "button") do
+            Next
+            %i.fi-arrow-right
+#tos.reveal-modal{:class => "[expand, xlarge, large, medium, small]", :data =>{ 'reveal' => true}}
+  %div.tos-container
+    = tos
