@@ -15,20 +15,17 @@
             %li= link_to  "Agenda" , frontend_agenda_path
             %li= link_to  "Visa information" , frontend_visa_path
             %li= link_to  "Transportation" , frontend_transportation_path
+            %li= link_to  "Documents" , frontend_conference_documents_path
         %li= link_to  "Accommodation & Fees" , frontend_accommodation_path
-        %li= link_to  "Conference documents" , frontend_conference_documents_path
-        %li
-          = link_to "Contact" , new_frontend_contact_form_path
+        %li= link_to "Supporters" , frontend_partners_path
+        %li= link_to "Contact" , new_frontend_contact_form_path
 
         -#%li.has-dropdown.not-click
         -#  = link_to "Organizers" , "#"
         -#  %ul.dropdown
-        -#
         -#    %li= link_to "Organizing team" , team_frontend_organizers_path
         -#    %li= link_to "Advisers" , advisers_frontend_organizers_path
         -#    %li= link_to "Chairs" , chairs_frontend_organizers_path
-        -#%li
-        -#  = link_to "Supporters" , frontend_partners_path
 
       %ul.right
         %li
