@@ -20,6 +20,7 @@ gem 'rails_admin'
 gem 'devise'
 gem 'remotipart', '~> 1.2'
 gem 'wicked'
+gem 'sprockets'
 gem 'breadcrumbs_on_rails'
 gem "nested_form"
 gem 'rails_12factor', group: :production
